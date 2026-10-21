@@ -1,2 +1,2 @@
 # patronesDart
-Patrones de diseño más comunes en Dart
+Ejemplificación del uso de patrones de diseño en Dart
