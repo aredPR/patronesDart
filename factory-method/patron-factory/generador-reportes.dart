@@ -6,11 +6,12 @@ import 'documento.dart';
 class GeneradorReportes {
   void generarReporte(String formato, List<int> calificaciones) {
     if (calificaciones.isEmpty) {
-      throw ArgumentError('La lista de calificaciones no puede estar vacía');
+      throw ArgumentError('El reporte necesita una lista de calificaciones no vacía.');
     }
 
+    //Este objeto conoce todas las implementaciones concretas
     Documento documento;
-    switch (formato.toLowerCase()) {
+    switch ( formato ) {
       case 'texto':
         documento = DocumentoTexto();
         break;
@@ -21,10 +22,10 @@ class GeneradorReportes {
         documento = DocumentoExcel();
         break;
       default:
-        throw ArgumentError('Formato de documento no soportado: $formato');
+        throw ArgumentError('Formato invalido: $formato');
     }
 
     print(documento.generar(calificaciones));
-    print('Reporte generado en formato $formato');
+    print('Reporte generado correctamente en formato $formato');
   }
 }
